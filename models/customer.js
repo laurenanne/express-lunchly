@@ -26,7 +26,7 @@ class Customer {
        FROM customers
        ORDER BY last_name, first_name`
     );
-    return results.rows.map(c => new Customer(c));
+    return results.rows.map((c) => new Customer(c));
   }
 
   /** get a customer by ID. */
@@ -51,6 +51,11 @@ class Customer {
     }
 
     return new Customer(customer);
+  }
+
+  fullName() {
+    const fullName = this.firstName + " " + this.lastName;
+    return fullName;
   }
 
   /** get all reservations for this customer. */
